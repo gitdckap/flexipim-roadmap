@@ -98,6 +98,11 @@
     z-index: 10;
 }
 
+li.active .flag:before {
+    animation: blink 1s step-start 0s infinite;
+    transform: scale(1.2);
+}
+
 .direction-r .flag:before {
     left: -40px;
 }
@@ -275,4 +280,10 @@
         margin: 1em 4em 0 4em;
     }
 
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.0;
+    }
 }
