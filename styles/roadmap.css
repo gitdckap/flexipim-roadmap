@@ -1,6 +1,8 @@
 .timeline {
     position: relative;
     width: 660px;
+    min-height: 100vh;
+    height: auto;
     margin: 0 auto;
     margin-top: 20px;
     padding: 1em 0;
@@ -164,7 +166,6 @@ li.active .flag:before {
     margin: 1em 0.75em 0 0;
 
     font-size: 0.77777em;
-    font-style: italic;
     line-height: 1.5em;
 }
 
