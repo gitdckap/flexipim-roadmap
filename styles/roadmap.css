@@ -29,11 +29,11 @@
     z-index: 5;
 }
 
-.timeline li {
+.timeline > li {
     padding: 1em 0;
 }
 
-.timeline li:after {
+.timeline > li:after {
     content: "";
     display: block;
     height: 0;
@@ -173,6 +173,47 @@ li.active .flag:before {
     margin: 1em 0 0 0.75em;
 }
 
+@media screen and (min-width: 660px) {
+    ul:not(.timeline), ol:not(.timeline)
+    {
+        list-style: none;
+    }
+}
+ul:not(.timeline), ol:not(.timeline) {
+    padding: 0;
+}
+ul:not(.timeline) li + li, ol:not(.timeline) li + li
+{
+    margin-top: 0.5rem;
+}
+
+ul:not(.timeline) > li, ol:not(.timeline) > li
+{
+    position: relative;
+}
+.direction-l ul:not(.timeline) > li::before, .direction-l ol:not(.timeline) > li::before
+{
+    position: absolute;
+    right: -1rem;
+    top: .7rem;
+    content: '';
+    width: .25rem;
+    height: .25rem;
+    border-radius: .25rem;
+    background: #222;
+}
+.direction-r ul:not(.timeline) > li::before, .direction-r ol:not(.timeline) > li::before
+{
+    position: absolute;
+    left: -1rem;
+    top: .7rem;
+    content: '';
+    width: .25rem;
+    height: .25rem;
+    border-radius: .25rem;
+    background: #222;
+}
+
 /* ================ Timeline Media Queries ================ */
 
 @media screen and (max-width: 660px) {
@@ -182,8 +223,12 @@ li.active .flag:before {
         padding: 4em 0 1em 0;
     }
 
-    .timeline li {
+    .timeline > li {
         padding: 2em 0;
+    }
+
+    ul:not(.timeline) {
+        list-style: disc;
     }
 
     .direction-l,
@@ -259,6 +304,7 @@ li.active .flag:before {
         -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.20);
         -moz-box-shadow: 0 0 1px rgba(0,0,0,0.20);
         box-shadow: 0 0 1px rgba(0,0,0,0.20);
+        border-radius: 0.5rem;
 
         z-index: 15;
     }
@@ -272,6 +318,13 @@ li.active .flag:before {
         z-index: 15;
     }
 
+    ul:not(.timeline), ol:not(.timeline) {
+        list-style-position: inside;
+    }
+    .direction-l ul:not(.timeline) > li::before, .direction-l ol:not(.timeline) > li::before,
+    .direction-r ul:not(.timeline) > li::before, .direction-r ol:not(.timeline) > li::before {
+        display: none;
+    }
 }
 
 @media (min-width: 400px) AND (max-width: 660px) {
